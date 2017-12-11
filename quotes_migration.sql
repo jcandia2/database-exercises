@@ -9,5 +9,8 @@ DROP TABLE IF EXISTS quotes;
 -- make sure we have a primary key
 CREATE TABLE quotes (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(50),
+  last_name  VARCHAR(100) NOT NULL,
+  content TEXT NOT NULL,
   PRIMARY KEY (id)
 );
