@@ -1,8 +1,13 @@
 USE codeup_test_db;
 
+-- every time we run this truncate deletes all of the rows, re-starts the primary key
+truncate albums;
+
 -- create seeds for table, base data --
+-- adds data to table
+-- we can exclude any column that isn't null
 INSERT INTO albums (artist, name, release_date, sales, genre)
-    VALUES ('Michael Jackson', 'Thriller', 1982, 66000000, 'Pop, Rock, R&B'),
+    VALUES ('Michael Jackson', 'Thriller', 1982, 46, 'Pop, Rock, R&B'),
       ('AC/DC','Back in Black',1980,26.1,'Hard rock'),
       ('Pink Floyd','The Dark Side of the Moon',1973,24.2,'Progressive rock'),
       ('Whitney Houston / Various artists','The Bodyguard',1992,27.4,'Soundtrack/R&B, soul, pop'),
