@@ -62,6 +62,11 @@ SELECT *
 FROM employees
 WHERE (hire_date BETWEEN '1990-01-01' AND '1999-12-31') AND birth_date LIKE '%12-25';
 
+# or
+SELECT *
+FROM employees
+WHERE hire_date LIKE '199%' and birtd_date like '%12-25';
+
 # Find all employees with a 'q' in their last name but not 'qu'
 select *
 from employees
