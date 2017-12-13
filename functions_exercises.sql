@@ -1,8 +1,9 @@
+# Update your queries for employees whose names start and end with 'E'
 # concat() to combine their first and last name together as a single column in your results.
 SELECT concat(e.first_name," ",e.last_name)
 as Full_Name
 FROM employees as e
-WHERE last_name LIKE 'E%'
+WHERE e.last_name LIKE 'E%' and e.last_name like '%e'
 ORDER BY e.last_name;
 
 # For your query of employees born on Christmas and hired in the 90s, find how many
@@ -15,7 +16,7 @@ limit 20;
 
 
 # For your query of employees born on Christmas and hired in the 90s, use datediff() to find how many
-# days they have been working at the company
+# days they have been working at the company --- i converted it to years
 SELECT e.first_name, e.last_name, e.hire_date, (datediff(now(),hire_date))/365 as 'Years_Worked'
 FROM employees as e
 WHERE e.hire_date LIKE '199%' and e.birth_date like '%12-25'
