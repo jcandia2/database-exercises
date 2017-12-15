@@ -190,12 +190,21 @@ ORDER BY d.dept_name;
 #
 # .....
 
--- SELECT
---   concat(e.first_name, ' ', e.last_name) AS 'Employee_Name',
---   de.dept_no,
---   d.dept_name,
---   de.from_date as since
--- FROM employees e
---   JOIN dept_emp de ON de.emp_no = e.emp_no
---   JOIN departments d ON d.dept_no = de.dept_no
--- where de.to_date > now();
+SELECT
+  concat(e.first_name, ' ', e.last_name) AS 'Employee_Name',
+  de.dept_no,
+  d.dept_name,
+  de.from_date                           AS since
+FROM employees e
+  JOIN dept_emp de ON de.emp_no = e.emp_no
+  JOIN departments d ON d.dept_no = de.dept_no
+WHERE de.to_date > now();
+
+SELECT
+  e.first_name,
+  e.last_name,
+  e.gender
+FROM employees e
+WHERE e.gender = 'F' AND e.emp_no IN (SELECT t.emp_no
+                                      FROM titles t
+                                      WHERE t.to_date > now());
