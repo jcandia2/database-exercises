@@ -97,8 +97,12 @@ SELECT
 FROM employees e
   JOIN dept_manager dm ON dm.emp_no = e.emp_no
   JOIN departments d ON d.dept_no = dm.dept_no
-WHERE dm.to_date > now() -- indicates current manager
+WHERE dm.to_date > now() -- indicates current manager, leaving this off will show dept thru history
 ORDER BY d.dept_name;
+
+SELECT now();
+
+SELECT curdate();
 
 # Find the name of all departments currently managed by women.
 
@@ -186,12 +190,12 @@ ORDER BY d.dept_name;
 #
 # .....
 
-SELECT
-  concat(e.first_name, ' ', e.last_name) AS 'Employee_Name',
-  de.dept_no,
-  d.dept_name,
-  de.from_date as since
-FROM employees e
-  JOIN dept_emp de ON de.emp_no = e.emp_no
-  JOIN departments d ON d.dept_no = de.dept_no
-where de.to_date > now();
+-- SELECT
+--   concat(e.first_name, ' ', e.last_name) AS 'Employee_Name',
+--   de.dept_no,
+--   d.dept_name,
+--   de.from_date as since
+-- FROM employees e
+--   JOIN dept_emp de ON de.emp_no = e.emp_no
+--   JOIN departments d ON d.dept_no = de.dept_no
+-- where de.to_date > now();
